@@ -1,4 +1,10 @@
-# Functions and methods for eras
+# era.R
+# S3 record class `era`: era definitions
+
+# Register formal class for S4 compatibility
+# https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package-1
+#' @importFrom methods setOldClass
+methods::setOldClass(c("era", "vctrs_rcrd"))
 
 # Constructors ------------------------------------------------------------
 
@@ -14,8 +20,8 @@
 #'  abbreviated label of a standard era defined in [eras()].
 #'  Otherwise, the label to give to the era constructed using the following
 #'  arguments.
-#' @param epoch  Integer. Epoch year from which years are counted (in the Common
-#'  Era).
+#' @param epoch  Numeric. Epoch year from which years are counted in Gregorian
+#'  astronomical years (i.e. there is a "year zero").
 #' @param name  Character. Full name of the era. Defaults to the value of
 #'  `label`.
 #' @param unit  An [era_year()] object describing the name of the year unit and
@@ -38,7 +44,7 @@
 #' era("cal BP")
 #'
 #' era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
-era <- function(label,
+era <- function(label = character(),
                 epoch = NULL,
                 name = label,
                 unit = era_year("Gregorian"),
@@ -49,6 +55,10 @@ era <- function(label,
       missing(unit) &&
       missing(scale) &&
       missing(direction)) {
+    if (vec_is_empty(label)) {
+      return(new_era())
+    }
+
     if (any(is.na(label))) {
       abort(
         "`label` must not contain NAs.",
@@ -107,12 +117,12 @@ era <- function(label,
   return(era)
 }
 
-new_era <- function(label = NA,
-                    epoch = NA,
-                    name = NA,
-                    unit = NA,
-                    scale = NA,
-                    direction = NA) {
+new_era <- function(label = character(),
+                    epoch = numeric(),
+                    name = character(),
+                    unit = era_year(),
+                    scale = integer(),
+                    direction = integer()) {
   new_rcrd(
     list(label = label,
          epoch = epoch,
@@ -275,7 +285,7 @@ era_problems <- function(x) {
   )
 }
 
-# S3 methods --------------------------------------------------------------
+# Format/print --------------------------------------------------------------
 
 #' @export
 format.era <- function(x, ...) {
@@ -293,6 +303,12 @@ format.era <- function(x, ...) {
   return(out)
 }
 
+#' @importFrom pillar pillar_shaft
+#' @export
+pillar_shaft.era <- function(x, ...) {
+  out <- format(era_label(x), justify = "right")
+  pillar::new_pillar_shaft_simple(out, align = "right")
+}
 
 # Casting/coercion --------------------------------------------------------
 
@@ -303,7 +319,7 @@ vec_ptype2.era.era <- function(x, y, ...) new_era()
 vec_cast.era.era <- function(x, to, ...) x
 
 
-# Equality and comparison -------------------------------------------------
+# Equality/comparison -------------------------------------------------
 
 #' @method vec_proxy_equal era
 #' @export
@@ -311,7 +327,7 @@ vec_proxy_equal.era <- function(x, ...) {
   vec_data(x)[!names(vec_data(x)) %in% c("label", "name")]
 }
 
-# Getters and setters -----------------------------------------------------
+# Get/set attributes -----------------------------------------------------
 
 #' Get parameters of an era
 #'
@@ -325,7 +341,7 @@ vec_proxy_equal.era <- function(x, ...) {
 #' The available parameters are:
 #'
 #' * **label** – unique, abbreviated label of the era, e.g. "cal BP"
-#' * **epoch** – year of origin of the era, e.g. 1950 for years Before Present
+#' * **epoch** – year of origin of the era, e.g. 1950 for Before Present
 #' * **name** – full name of the era, e.g. "calendar years Before Present"
 #' * **unit** – unit of years used, an [era_year()] object
 #' * **scale** – multiple of years used, e.g. 1000 for ka/kiloannum

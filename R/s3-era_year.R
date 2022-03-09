@@ -1,5 +1,10 @@
-# era_unit.R
-# Functions and methods for S3 class era_year
+# era_year.R
+# S3 record class `era_year`: year unit definition
+
+# Register formal class for S4 compatibility
+# https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package-1
+#' @importFrom methods setOldClass
+methods::setOldClass(c("era_year", "vctrs_rcrd"))
 
 # Constructors ------------------------------------------------------------
 
@@ -22,10 +27,16 @@
 #'
 #' @examples
 #' era_year("Julian", 365.25)
-era_year <- function(label, days = 365.2425) {
-  label <- vec_cast(label, character())
-  days <- vec_cast(days, numeric())
-  new_era_year(label, days)
+era_year <- function(label = character(), days = 365.2425) {
+  if (vec_is_empty(label) && missing(days)) {
+    new_era_year()
+  }
+  else {
+    label <- vec_cast(label, character())
+    days <- vec_cast(days, numeric())
+
+    new_era_year(label, days)
+  }
 }
 
 new_era_year <- function(label = character(), days = numeric()) {
@@ -55,15 +66,21 @@ is_era_year <- function(x) {
 }
 
 
-# Print and format --------------------------------------------------------
+# Print/format --------------------------------------------------------
 
 #' @export
 format.era_year <- function(x, ...) {
   paste0(era_year_label(x), " years (", era_year_days(x), " days)")
 }
 
+#' @importFrom pillar pillar_shaft
+#' @export
+pillar_shaft.era_year <- function(x, ...) {
+  out <- format(era_year_label(x), justify = "right")
+  pillar::new_pillar_shaft_simple(out, align = "right")
+}
 
-# Getters and setters -----------------------------------------------------
+# Get/set attributes -----------------------------------------------------
 
 #' Get the parameters of an `era_year` object.
 #'

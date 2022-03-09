@@ -40,34 +40,42 @@ postglacial <- tribble(
   "Heinrich 1",      17.0
 )
 
-postglacial %>% 
+postglacial |> 
   mutate(start_ka = yr(start_ka, "ka"))
 
-## ----eras, results=FALSE------------------------------------------------------
-eras()
+## ----eg-use-era---------------------------------------------------------------
+era("BP")
 
-## ----eras-table, echo=FALSE---------------------------------------------------
-eras() %>% 
-  knitr::kable()
+yr(10000, "BP")
+
+yr_transform(yr(10000, "BP"), "BCE")
+
+## ----era-table, echo=FALSE----------------------------------------------------
+all_eras <- eras() 
+all_eras$this_year <- NA
+na_era <- is.na(era_year_days(all_eras$unit))
+all_eras$this_year[!na_era] <- this_year(all_eras$label[!na_era])
+
+knitr::kable(all_eras)
 
 ## ----custom-era---------------------------------------------------------------
 era("T.A.", epoch = -9021, name = "Third Age", direction = 1)
 
 ## ----transform----------------------------------------------------------------
-postglacial %>% 
-  mutate(start_ka = yr(start_ka, "ka")) %>% 
+postglacial |> 
+  mutate(start_ka = yr(start_ka, "ka")) |> 
   mutate(start_bp = yr_transform(start_ka, era("BP")),
          start_bce = yr_transform(start_ka, era("BCE")))
 
 ## ----yr-transform-precision1--------------------------------------------------
-yr(500000, "BCE") %>% 
+yr(500000, "BCE") |> 
   yr_transform(era("ka"))
 
 ## ----yr-transform-precision2--------------------------------------------------
-yr(10000, "BP") %>% 
+yr(10000, "BP") |> 
   yr_transform(era("BCE"), precision = 1000)
 
-yr(500000, "BCE") %>% 
+yr(500000, "BCE") |> 
   yr_transform(era("mya"), precision = 0.1)
 
 ## ----transform-unit, error=TRUE-----------------------------------------------

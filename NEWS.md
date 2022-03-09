@@ -1,8 +1,26 @@
+# era 0.4.0
+
+* New eras:
+  * Anno Mundi (Hebrew calendar)
+* New year units:
+  * Sidereal, tropical, and anomalistic astronomic years #15
+  * Hebrew lunisolar years
+* Changes to existing eras:
+  * More precise epoch value for Hijri eras: `621.5394` instead of `622`.
+  * More precise epoch value for Nowruz (Solar Hijri) eras: `621.2218` instead of `622`.
+* Fixed recurring issues related to the absence of a year 0 in BCE/CE #4
+* `this_year()` now considers the current date, returns a floored integer (i.e. the actual current calendar year), and is vectorised over `era`.
+* Added pillar printing methods for `era` (#33) and `era_year` (#34) in tibbles
+* Class constructors `era()` and `yr()` now return a zero-length vector when called with no arguments (instead of an error), allowing them to be used as [prototypes](https://vctrs.r-lib.org/articles/type-size.html)
+* `era_yr` objects can now be cast to character vectors (e.g. `as.character(yr(1, "BP"))`)
+* Combining otherwise equivalent eras with different names or labels with `c()` now triggers a warning (#27), consistent with combining them using arithmetic (#3)
+* The `era` package no longer exports `magrittr`'s pipe operator (`%>%`)
+
 # era 0.3.1
 
 CRAN release.
 
-* Fixed moved link in README.md
+* Fixed moved link in README
 
 # era 0.3.0
 

@@ -14,7 +14,19 @@
 
 <title>Years with an era</title>
 
-<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -26,7 +38,14 @@
     </style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
@@ -118,7 +137,187 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -135,36 +334,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="TOC">
 <ul>
-<li><a href="#yr">Years with an era: the <code>yr</code> class</a></li>
-<li><a href="#era">Era definitions: the <code>era</code> class</a></li>
-<li><a href="#yr_transform">Converting between eras: <code>yr_transform()</code></a></li>
+<li><a href="#yr">Years with an era</a></li>
+<li><a href="#era">Era definitions</a></li>
+<li><a href="#yr_transform">Converting between eras:
+<code>yr_transform()</code></a></li>
 <li><a href="#arithmetic">Arithmetic with year vectors</a></li>
 </ul>
 </div>
 
-<p>Archaeologists, geologists, and other palaeoscientists use different systems for numbering years in the distant past. For example, the year 10,000 BCE is 11,950 <a href="https://en.wikipedia.org/wiki/Before_Present">Before Present</a> or 11.95 <a href="https://en.wikipedia.org/wiki/Year#Symbols">ka</a>. It is usually fine to store years as a plain numeric vector in R, but sometimes it helps to be explicit about which system is being used:</p>
+<p>Archaeologists, geologists, and other palaeoscientists use different
+systems for numbering years in the distant past. For example, the year
+10,000 BCE is 11,950 <a href="https://en.wikipedia.org/wiki/Before_Present">Before Present</a>
+or 11.95 <a href="https://en.wikipedia.org/wiki/Year#Symbols">ka</a>. It
+is usually fine to store years as a plain numeric vector in R, but
+sometimes it helps to be explicit about which system is being used:</p>
 <ul>
 <li>When you have data that mixes different systems</li>
 <li>When you want to transform years between different systems</li>
 <li>When you need to do arithmetic with years</li>
 </ul>
-<p>The <strong>era</strong> package helps in these cases by providing classes which define the ‘era’ associated with a vector of years and functions for formatting, combining, and transforming years with different eras. This vignette is an introduction to the main features of the package.</p>
+<p>The <strong>era</strong> package helps in these cases by providing
+classes which define the ‘era’ associated with a vector of years and
+functions for formatting, combining, and transforming years with
+different eras. This vignette is an introduction to the main features of
+the package.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;era&quot;</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tibble&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <div id="yr" class="section level2">
-<h2>Years with an era: the <code>yr</code> class</h2>
-<p>Vectors of years with an era are represented by the <code>yr</code> (<code>era_yr</code>) class, which is constructed with <code>yr()</code>:</p>
+<h2>Years with an era</h2>
+<p>Vectors of years with an era are represented by the <code>yr</code>
+(<code>era_yr</code>) class, which is constructed with
+<code>yr()</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="fu">c</span>(<span class="dv">10000</span>, <span class="dv">11000</span>, <span class="dv">12000</span>), <span class="st">&quot;BP&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # BP years &lt;yr[3]&gt;:</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10000 11000 12000</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></span></code></pre></div>
-<p>The first argument is a numeric vector of years. These can be integers or doubles.</p>
-<p>The second argument, <code>era</code>, defines the numbering system associated with the years. This is an object of class <code>era</code> which defines the <a href="#era">parameters of the calendar, epoch and time scale</a>. Most of the time, you can simply specify the abbreviated label of the era, which will be looked up in the standard eras defined by <code>eras()</code>:</p>
+<p>The first argument is a numeric vector of years. These can be
+integers or doubles.</p>
+<p>The second argument, <code>era</code>, defines the numbering system
+associated with the years. This is an object of class <code>era</code>
+which defines the <a href="#era">parameters of the calendar, epoch and
+time scale</a>. Most of the time, you can simply specify the abbreviated
+label of the era, which will be looked up in the standard eras defined
+by <code>eras()</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="fu">c</span>(<span class="dv">10000</span>, <span class="dv">11000</span>, <span class="dv">12000</span>), <span class="st">&quot;BCE&quot;</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # BCE years &lt;yr[3]&gt;:</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10000 11000 12000</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 1</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="fu">c</span>(<span class="dv">10000</span>, <span class="dv">11000</span>, <span class="dv">12000</span>), <span class="st">&quot;uncal BP&quot;</span>)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # uncal BP years &lt;yr[3]&gt;:</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10000 11000 12000</span></span>
@@ -173,19 +390,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ka years &lt;yr[3]&gt;:</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10000 11000 12000</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: kiloannum (ka): 1000 Gregorian years (365.2425 days), counted backwards from 1950</span></span></code></pre></div>
-<p><code>yr_era()</code> returns details of the era associated with a <code>yr</code> vector:</p>
+<p><code>yr_era()</code> returns details of the era associated with a
+<code>yr</code> vector:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>neolithic <span class="ot">&lt;-</span> <span class="fu">yr</span>(<span class="dv">11700</span><span class="sc">:</span><span class="dv">7500</span>, <span class="st">&quot;BP&quot;</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">yr_era</span>(neolithic)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;era[1]&gt;</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></span></code></pre></div>
-<p><code>yr_era()</code>, and its pipe-friendly alias <code>yr_set_era()</code>, can also be used to set the era of an existing object:</p>
+<p><code>yr_era()</code>, and its pipe-friendly alias
+<code>yr_set_era()</code>, can also be used to set the era of an
+existing object:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>chalcolithic <span class="ot">&lt;-</span> <span class="dv">7500</span><span class="sc">:</span><span class="dv">6000</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">yr_era</span>(chalcolithic) <span class="ot">&lt;-</span> <span class="fu">yr_era</span>(neolithic)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">yr_era</span>(chalcolithic)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;era[1]&gt;</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></span></code></pre></div>
-<p>Note that this only updates the vector’s era attribute; it doesn’t change the data itself. To <em>convert</em> years from one era to another, you need to use <a href="#yr_transform">the <code>yr_transform()</code> function</a>.</p>
-<p><code>yr</code> vectors fit nicely into tables, both base data frames and tibbles:</p>
+<p>Note that this only updates the vector’s era attribute; it doesn’t
+change the data itself. To <em>convert</em> years from one era to
+another, you need to use <a href="#yr_transform">the
+<code>yr_transform()</code> function</a>.</p>
+<p><code>yr</code> vectors fit nicely into tables, both base data frames
+and tibbles:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>postglacial <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>period,           <span class="sc">~</span>start_ka,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Late Holocene&quot;</span>,   <span class="fl">4.2</span>,</span>
@@ -196,9 +420,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Heinrich 1&quot;</span>,      <span class="fl">17.0</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>postglacial <span class="sc">%&gt;%</span> </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>postglacial <span class="sc">|&gt;</span> </span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_ka =</span> <span class="fu">yr</span>(start_ka, <span class="st">&quot;ka&quot;</span>))</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 2</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 2</span></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   period          start_ka</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;               &lt;yr&gt;</span></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Late Holocene     4.2 ka</span></span>
@@ -209,17 +433,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 Heinrich 1         17 ka</span></span></code></pre></div>
 </div>
 <div id="era" class="section level2">
-<h2>Era definitions: the <code>era</code> class</h2>
-<p>Eras are defined by the <code>era</code> class. Many common eras are defined by the <code>eras()</code> function and can be referenced in <code>yr()</code> or <code>era()</code> by their abbreviated <code>label</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eras</span>()</span></code></pre></div>
+<h2>Era definitions</h2>
+<p>era includes built-in definitions of many time scales and year
+numbering systems from contemporary and historic calendars.
+<code>eras()</code> returns the <a href="#era-list">full list</a> of
+built-in definitions. You can use any definition in this list by passing
+its abbreviated <code>label</code> to <code>era()</code> or as the
+<code>era</code> argument of <code>yr()</code> or any other function in
+the package:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">era</span>(<span class="st">&quot;BP&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;era[1]&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="dv">10000</span>, <span class="st">&quot;BP&quot;</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # BP years &lt;yr[1]&gt;:</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10000</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">yr_transform</span>(<span class="fu">yr</span>(<span class="dv">10000</span>, <span class="st">&quot;BP&quot;</span>), <span class="st">&quot;BCE&quot;</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # BCE years &lt;yr[1]&gt;:</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 8051</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 1</span></span></code></pre></div>
+<p>If you need to use a time scale that is not in this list, you can <a href="#defining-other-eras">define it yourself</a> with
+<code>era()</code>. Suggestions for new eras to include in the package
+are also welcome; please <a href="https://github.com/joeroe/era/issues">create an issue</a> on
+GitHub with suggestions.</p>
+<div id="era-list" class="section level3">
+<h3>List of built-in eras</h3>
 <table>
 <colgroup>
-<col width="8%" />
 <col width="6%" />
-<col width="34%" />
-<col width="34%" />
-<col width="5%" />
 <col width="9%" />
+<col width="28%" />
+<col width="35%" />
+<col width="4%" />
+<col width="7%" />
+<col width="7%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -229,308 +478,383 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <th align="left">unit</th>
 <th align="right">scale</th>
 <th align="right">direction</th>
+<th align="left">this_year</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">BP</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">Before Present</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-72</td>
 </tr>
 <tr class="even">
 <td align="left">cal BP</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">Before Present</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-72</td>
 </tr>
 <tr class="odd">
 <td align="left">BC</td>
-<td align="right">0</td>
+<td align="right">1.0000</td>
 <td align="left">Before Christ</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-2021</td>
 </tr>
 <tr class="even">
 <td align="left">BCE</td>
-<td align="right">0</td>
+<td align="right">1.0000</td>
 <td align="left">Before Common Era</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-2021</td>
 </tr>
 <tr class="odd">
 <td align="left">AD</td>
-<td align="right">0</td>
+<td align="right">0.0000</td>
 <td align="left">Anno Domini</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">2022</td>
 </tr>
 <tr class="even">
 <td align="left">CE</td>
-<td align="right">0</td>
+<td align="right">0.0000</td>
 <td align="left">Common Era</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">2022</td>
 </tr>
 <tr class="odd">
 <td align="left">a</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">annum</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-72</td>
 </tr>
 <tr class="even">
 <td align="left">ka</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">kiloannum</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+03</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="odd">
 <td align="left">Ma</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">megaannum</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+06</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="even">
 <td align="left">Ga</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">gigaannum</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+09</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="odd">
 <td align="left">kya</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">thousand years ago</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+03</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="even">
 <td align="left">mya</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">million years ago</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+06</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="odd">
 <td align="left">bya</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">billion years ago</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+09</td>
 <td align="right">-1</td>
+<td align="left">0</td>
 </tr>
 <tr class="even">
 <td align="left">b2k</td>
-<td align="right">2000</td>
+<td align="right">2000.0000</td>
 <td align="left">years before 2000</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-22</td>
 </tr>
 <tr class="odd">
 <td align="left">uncal BP</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">uncalibrated Before Present</td>
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">RCYBP</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">Radiocarbon Years Before Present</td>
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">bp</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">Before Present (uncalibrated)</td>
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">bc</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">Before Christ (uncalibrated)</td>
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">bce</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">Before Common Era (uncalibrated)</td>
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">ad</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">Anno Domini (uncalibrated)</td>
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">ce</td>
-<td align="right">1950</td>
+<td align="right">1950.0000</td>
 <td align="left">Common Era (uncalibrated)</td>
 <td align="left">radiocarbon years (NA days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">AD O.S.</td>
-<td align="right">0</td>
+<td align="right">0.0000</td>
 <td align="left">Anno Domini (Old Style)</td>
 <td align="left">Julian years (365.25 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">2022</td>
 </tr>
 <tr class="odd">
 <td align="left">BC O.S.</td>
-<td align="right">0</td>
+<td align="right">1.0000</td>
 <td align="left">Before Christ (New Style)</td>
 <td align="left">Julian years (365.25 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">2021</td>
 </tr>
 <tr class="even">
+<td align="left">H</td>
+<td align="right">621.5366</td>
+<td align="left">Hijra</td>
+<td align="left">Islamic lunar years (354.36708 days)</td>
+<td align="right">1e+00</td>
+<td align="right">1</td>
+<td align="left">1443</td>
+</tr>
+<tr class="odd">
 <td align="left">AH</td>
-<td align="right">622</td>
+<td align="right">621.5366</td>
 <td align="left">Anno Hegirae</td>
 <td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">1443</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">BH</td>
-<td align="right">622</td>
+<td align="right">622.5366</td>
 <td align="left">Before the Hijra</td>
 <td align="left">Islamic lunar years (354.36708 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
-</tr>
-<tr class="even">
-<td align="left">SH</td>
-<td align="right">622</td>
-<td align="left">Solar Hijri</td>
-<td align="left">Gregorian years (365.2425 days)</td>
-<td align="right">1e+00</td>
-<td align="right">1</td>
+<td align="left">-1442</td>
 </tr>
 <tr class="odd">
-<td align="left">BSH</td>
-<td align="right">622</td>
-<td align="left">Before Solar Hijri</td>
-<td align="left">Gregorian years (365.2425 days)</td>
+<td align="left">SH</td>
+<td align="right">621.2190</td>
+<td align="left">Solar Hijri</td>
+<td align="left">Nowruz years (365.2424 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">1400</td>
+</tr>
+<tr class="even">
+<td align="left">BSH</td>
+<td align="right">622.2190</td>
+<td align="left">Before Solar Hijri</td>
+<td align="left">Nowruz years (365.2424 days)</td>
+<td align="right">1e+00</td>
+<td align="right">-1</td>
+<td align="left">-1399</td>
+</tr>
+<tr class="odd">
+<td align="left">AM</td>
+<td align="right">-3760.2361</td>
+<td align="left">Anno Mundi</td>
+<td align="left">Hebrew lunisolar years (365.246822205978 days)</td>
+<td align="right">1e+00</td>
+<td align="right">1</td>
+<td align="left">5782</td>
 </tr>
 <tr class="even">
 <td align="left">HE</td>
-<td align="right">-10000</td>
+<td align="right">-10000.0000</td>
 <td align="left">Holocene Era</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">12022</td>
 </tr>
 <tr class="odd">
 <td align="left">BHE</td>
-<td align="right">-10000</td>
+<td align="right">-10000.0000</td>
 <td align="left">Before Holocene Era</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">-1</td>
+<td align="left">-12022</td>
 </tr>
 <tr class="even">
 <td align="left">AL</td>
-<td align="right">-4000</td>
+<td align="right">-4000.0000</td>
 <td align="left">Anno Lucis</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">6022</td>
 </tr>
 <tr class="odd">
 <td align="left">ADA</td>
-<td align="right">-8000</td>
+<td align="right">-8000.0000</td>
 <td align="left">After the Development of Agriculture</td>
 <td align="left">Gregorian years (365.2425 days)</td>
 <td align="right">1e+00</td>
 <td align="right">1</td>
+<td align="left">10022</td>
 </tr>
 </tbody>
 </table>
-<p>Eras are defined by the following parameters:</p>
+</div>
+<div id="defining-other-eras" class="section level3">
+<h3>Defining other eras</h3>
+<p>Eras are defined by the <code>era</code> class with the following
+parameters:</p>
 <ul>
-<li><strong>label</strong>: an abbreviated label that uniquely identifies the era</li>
+<li><strong>label</strong>: an abbreviated label that uniquely
+identifies the era</li>
 <li><strong>name</strong>: the full name of the era</li>
-<li><strong>epoch</strong>: the origin year from which years are counted</li>
-<li><strong>unit</strong>: the unit of years counted, defined as its length in solar days</li>
-<li><strong>scale</strong>: the number of years represented by one unit</li>
-<li><strong>direction</strong>: whether years are counted forwards (<code>1</code>) or backwards (<code>-1</code>) from the epoch</li>
+<li><strong>epoch</strong>: the origin year from which years are counted
+(in Gregorian astronomical years)</li>
+<li><strong>unit</strong>: the unit of years counted, defined as its
+length in solar days</li>
+<li><strong>scale</strong>: the number of years represented by one
+unit</li>
+<li><strong>direction</strong>: whether years are counted forwards
+(<code>1</code>) or backwards (<code>-1</code>) from the epoch</li>
 </ul>
-<p>These parameters are passed to <code>era()</code> to construct an <code>era</code> object. <code>epoch</code>, <code>unit</code>, <code>scale</code>, and <code>direction</code> determine the transformation between eras; <code>label</code> and <code>name</code> are purely descriptive.</p>
-<p>You can define arbitrary eras by using the <code>era()</code> function directly:</p>
+<p>These parameters are passed to <code>era()</code> to construct an
+<code>era</code> object. <code>epoch</code>, <code>unit</code>,
+<code>scale</code>, and <code>direction</code> determine the
+transformation between eras; <code>label</code> and <code>name</code>
+are purely descriptive.</p>
+<p>You can define arbitrary eras by using the <code>era()</code>
+function directly:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">era</span>(<span class="st">&quot;T.A.&quot;</span>, <span class="at">epoch =</span> <span class="sc">-</span><span class="dv">9021</span>, <span class="at">name =</span> <span class="st">&quot;Third Age&quot;</span>, <span class="at">direction =</span> <span class="dv">1</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;era[1]&gt;</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] Third Age (T.A.): Gregorian years (365.2425 days), counted forwards from -9021</span></span></code></pre></div>
-<p>As long as all the parameters are specified correctly, user-defined eras can also be used in <code>yr_transform()</code>.</p>
+<p>As long as all the parameters are specified correctly, user-defined
+eras can also be used in <code>yr_transform()</code>.</p>
+</div>
 </div>
 <div id="yr_transform" class="section level2">
 <h2>Converting between eras: <code>yr_transform()</code></h2>
 <p>Use <code>yr_transform()</code> to convert between eras:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>postglacial <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_ka =</span> <span class="fu">yr</span>(start_ka, <span class="st">&quot;ka&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>postglacial <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_ka =</span> <span class="fu">yr</span>(start_ka, <span class="st">&quot;ka&quot;</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_bp =</span> <span class="fu">yr_transform</span>(start_ka, <span class="fu">era</span>(<span class="st">&quot;BP&quot;</span>)),</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">start_bce =</span> <span class="fu">yr_transform</span>(start_ka, <span class="fu">era</span>(<span class="st">&quot;BCE&quot;</span>)))</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 4</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 4</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   period          start_ka start_bp start_bce</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;               &lt;yr&gt;     &lt;yr&gt;      &lt;yr&gt;</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Late Holocene     4.2 ka  4200 BP  2250 BCE</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mid Holocene    8.326 ka  8326 BP  6376 BCE</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Early Holocene   11.7 ka 11700 BP  9750 BCE</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Younger Dryas    12.9 ka 12900 BP 10950 BCE</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Bølling-Allerød  14.7 ka 14700 BP 12750 BCE</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 Heinrich 1         17 ka 17000 BP 15050 BCE</span></span></code></pre></div>
-<p>This function implements a generic algorithm for transforming years based on the era parameters described above. This means that, with a few exceptions (see <a href="#invalidtransform">invalid transformations</a>, you can transform between any two eras that can be described by the <code>era</code> class.</p>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Late Holocene     4.2 ka  4200 BP  2251 BCE</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mid Holocene    8.326 ka  8326 BP  6377 BCE</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Early Holocene   11.7 ka 11700 BP  9751 BCE</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Younger Dryas    12.9 ka 12900 BP 10951 BCE</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Bølling-Allerød  14.7 ka 14700 BP 12751 BCE</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 Heinrich 1         17 ka 17000 BP 15051 BCE</span></span></code></pre></div>
+<p>This function implements a generic algorithm for transforming years
+based on the era parameters described above. This means that, with a few
+exceptions (see <a href="#invalidtransform">invalid transformations</a>,
+you can transform between any two eras that can be described by the
+<code>era</code> class.</p>
 <div id="transformation-precision" class="section level3">
 <h3>Transformation precision</h3>
 <p>By default, era transformations are exact:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="dv">500000</span>, <span class="st">&quot;BCE&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="dv">500000</span>, <span class="st">&quot;BCE&quot;</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">yr_transform</span>(<span class="fu">era</span>(<span class="st">&quot;ka&quot;</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ka years &lt;yr[1]&gt;:</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 501.95</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 501.949</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: kiloannum (ka): 1000 Gregorian years (365.2425 days), counted backwards from 1950</span></span></code></pre></div>
-<p>Often, this precision is not necessary. For example, when converting years between calendar- and present-based eras, the 71 year difference between the formal definition of “Present” and the actual present is rarely significant on a geologic time scale. Use the <code>precision</code> argument of <code>yr_transform</code> to get rounded results:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="dv">10000</span>, <span class="st">&quot;BP&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<p>Often, this precision is not necessary. For example, when converting
+years between calendar- and present-based eras, the 72 year difference
+between the formal definition of “Present” and the actual present is
+rarely significant on a geologic time scale. Use the
+<code>precision</code> argument of <code>yr_transform</code> to get
+rounded results:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="dv">10000</span>, <span class="st">&quot;BP&quot;</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">yr_transform</span>(<span class="fu">era</span>(<span class="st">&quot;BCE&quot;</span>), <span class="at">precision =</span> <span class="dv">1000</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # BCE years &lt;yr[1]&gt;:</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 8000</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 0</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: Before Common Era (BCE): Gregorian years (365.2425 days), counted backwards from 1</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="dv">500000</span>, <span class="st">&quot;BCE&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="dv">500000</span>, <span class="st">&quot;BCE&quot;</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">yr_transform</span>(<span class="fu">era</span>(<span class="st">&quot;mya&quot;</span>), <span class="at">precision =</span> <span class="fl">0.1</span>)</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # mya years &lt;yr[1]&gt;:</span></span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span>
@@ -538,20 +862,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="invalidtransform" class="section level3">
 <h3>Invalid transformations</h3>
-<p>Some transformations are not possible. Notably, the length of a ‘radiocarbon year’ is not well defined on a calendar time scale without <a href="https://en.wikipedia.org/wiki/Radiocarbon_calibration">calibration</a>. Eras that use non-calendar year unit are represented with an <code>NA</code> and will cause an error if passed to <code>yr_transform()</code>:</p>
+<p>Some transformations are not possible. Notably, the length of a
+‘radiocarbon year’ is not well defined on a calendar time scale without
+<a href="https://en.wikipedia.org/wiki/Radiocarbon_calibration">calibration</a>.
+Eras that use non-calendar year unit are represented with an
+<code>NA</code> and will cause an error if passed to
+<code>yr_transform()</code>:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">era_unit</span>(<span class="fu">era</span>(<span class="st">&quot;uncal BP&quot;</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;era_year[1]&gt;</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] radiocarbon years (NA days)</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">yr_transform</span>(<span class="fu">yr</span>(<span class="dv">9000</span>, <span class="st">&quot;uncal BP&quot;</span>), <span class="fu">era</span>(<span class="st">&quot;cal BP&quot;</span>))</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Cannot transform uncalibrated Before Present to Before Present years:</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x Calendar length of a radiocarbon year is undefined.</span></span></code></pre></div>
-<p><code>c14_calibrate()</code> from the <a href="https://stratigraphr.joeroe.io">stratigraphr</a> package implements radiocarbon calibration with <code>yr</code> objects.</p>
-<p>Conversion between eras that both have an <code>NA</code> unit are also an error, following the R convention that <code>NA == NA</code> is <code>NA</code>. In other words, we don’t know whether two non-calendar units are the <em>same</em> non-calendar unit. This means that it is not possible to use <code>yr_transform()</code> to convert bp (radiocarbon years Before Present) to bce (radiocarbon years before the Common Era) years, for example.</p>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in `yr_transform()`:</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! Cannot transform uncalibrated Before Present to Before Present years:</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x Calendar length of a radiocarbon year is undefined.</span></span></code></pre></div>
+<p><code>c14_calibrate()</code> from the <a href="https://stratigraphr.joeroe.io">stratigraphr</a> package
+implements radiocarbon calibration with <code>yr</code> objects.</p>
+<p>Conversion between eras that both have an <code>NA</code> unit are
+also an error, following the R convention that <code>NA == NA</code> is
+<code>NA</code>. In other words, we don’t know whether two non-calendar
+units are the <em>same</em> non-calendar unit. This means that it is not
+possible to use <code>yr_transform()</code> to convert bp (radiocarbon
+years Before Present) to bce (radiocarbon years before the Common Era)
+years, for example.</p>
 </div>
 </div>
 <div id="arithmetic" class="section level2">
 <h2>Arithmetic with year vectors</h2>
-<p>The <code>yr</code> class is based on <a href="https://vctrs.r-lib.org/">vctrs</a>, ensuring type- and size-stable computations. For example, you can do arithmetic with year vectors:</p>
+<p>The <code>yr</code> class is based on <a href="https://vctrs.r-lib.org/">vctrs</a>, ensuring type- and
+size-stable computations. For example, you can do arithmetic with year
+vectors:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">yr</span>(<span class="dv">1500</span>, <span class="st">&quot;CE&quot;</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">yr</span>(<span class="dv">2020</span>, <span class="st">&quot;CE&quot;</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>b <span class="sc">-</span> a</span>
@@ -561,20 +900,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>But only when they have the same era:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">yr</span>(<span class="fl">0.5</span>, <span class="st">&quot;ka&quot;</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>b <span class="sc">-</span> c</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: &lt;yr (CE)&gt; - &lt;yr (ka)&gt; is not permitted</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Reconcile eras with yr_transform() first.</span></span></code></pre></div>
-<p>Note that, when comparing eras, only the parameters significant to the transformation are considered (i.e. not <code>label</code> or <code>name</code>). This means that it is possible to combine year vectors with differently-named but functionally equivalent eras, for example <code>era(&quot;BP&quot;)</code> and <code>era(&quot;cal BP&quot;)</code>, although doing so will print a warning about the loss of information:</p>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in `stop_vctrs()`:</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! Can&#39;t convert &lt;yr (ka)&gt; to &lt;yr (CE)&gt;.</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Reconcile eras with yr_transform() first.</span></span></code></pre></div>
+<p>Note that, when comparing eras, only the parameters significant to
+the transformation are considered (i.e. not <code>label</code> or
+<code>name</code>). This means that it is possible to combine year
+vectors with differently-named but functionally equivalent eras, for
+example <code>era(&quot;BP&quot;)</code> and <code>era(&quot;cal BP&quot;)</code>, although
+doing so will print a warning about the loss of information:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">era</span>(<span class="st">&quot;BP&quot;</span>) <span class="sc">==</span> <span class="fu">era</span>(<span class="st">&quot;BC&quot;</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">era</span>(<span class="st">&quot;BP&quot;</span>) <span class="sc">==</span> <span class="fu">era</span>(<span class="st">&quot;cal BP&quot;</span>)</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">yr</span>(<span class="dv">1000</span>, <span class="st">&quot;BP&quot;</span>) <span class="sc">+</span> <span class="fu">yr</span>(<span class="dv">1000</span>, <span class="st">&quot;cal BP&quot;</span>)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: `era(x)` and `era(y)` have different label or name parameters.</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: eras have different label or name parameters.</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # BP years &lt;yr[1]&gt;:</span></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2000</span></span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Era: Before Present (BP): Gregorian years (365.2425 days), counted backwards from 1950</span></span></code></pre></div>
-<p>Years will be coerced to a plain numeric vector if a computation means their era no longer makes sense:</p>
+<p>Years will be coerced to a plain numeric vector if a computation
+means their era no longer makes sense:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">*</span> b</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3030000</span></span></code></pre></div>
 </div>

@@ -1,15 +1,12 @@
-# Functions and methods for years with era
+# yr.R
+# S3 vector class `era_yr` (`yr`): years with an era
 
+# Register formal class for S4 compatibility
+# https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package-1
+#' @importFrom methods setOldClass
+methods::setOldClass(c("era_yr", "vctrs_vctr"))
 
 # Constructors ------------------------------------------------------------
-
-new_yr <- function(x = numeric(), era = new_era()) {
-  new_vctr(x, era = era, class = "era_yr")
-  # S4 compatibility as suggested in:
-  # https://vctrs.r-lib.org/articles/s3-vector.html#low-level-and-user-friendly-constructors-1
-  # See https://github.com/joeroe/era/issues/12
-  # methods::setOldClass(c("era_yr", "vctrs_vctr"))
-}
 
 #' Create a vector of years with era
 #'
@@ -33,7 +30,7 @@ new_yr <- function(x = numeric(), era = new_era()) {
 #'
 #' # A bad movie
 #' yr(10000, "BC")
-yr <- function(x = numeric(), era) {
+yr <- function(x = numeric(), era = character()) {
   x <- vec_cast(x, numeric())
 
   era <- era(era)
@@ -41,6 +38,10 @@ yr <- function(x = numeric(), era) {
   yr <- new_yr(x, era)
   validate_yr(yr)
   return(yr)
+}
+
+new_yr <- function(x = numeric(), era = new_era()) {
+  new_vctr(x, era = era, class = "era_yr")
 }
 
 
@@ -167,6 +168,12 @@ vec_cast.era_yr.era_yr <- function(x, to, ..., x_arg = "", to_arg = "") {
                            details = "Reconcile eras with yr_transform() first.")
   }
 
+  if (era_label(yr_era(x)) != era_label(yr_era(to)) |
+      era_name(yr_era(x)) != era_name(yr_era(to))) {
+    warn(c("eras have different label or name parameters."),
+         class = "era_lossy_coercion")
+  }
+
   new_yr(vec_data(x), era = yr_era(to))
 }
 
@@ -200,7 +207,17 @@ vec_cast.era_yr.double <- function(x, to, ...) {
   new_yr(x, yr_era(to))
 }
 
-# Print generics ---------------------------------------------------------
+#' @export
+vec_cast.character.era_yr <- function(x, to, ...) {
+  paste(vec_data(x), era_label(yr_era(x)))
+}
+
+#' @export
+vec_cast.era_yr.character <- function(x, to, ...,  x_arg = "", to_arg = "") {
+  stop_incompatible_cast(x, to, x_arg = x_arg, to_arg = to_arg)
+}
+
+# Format/print ---------------------------------------------------------
 #' @export
 vec_ptype_full.era_yr <- function(x, ...) {
   paste0("yr (", era_label(yr_era(x)), ")")
@@ -223,9 +240,6 @@ obj_print_footer.era_yr <- function(x, ...) {
   cat("# Era: ", format(yr_era(x)), "\n", sep = "")
 }
 
-
-# Printing in tibbles -----------------------------------------------------
-
 #' @importFrom pillar pillar_shaft
 #' @export
 pillar_shaft.era_yr <- function(x, ...) {
@@ -236,7 +250,7 @@ pillar_shaft.era_yr <- function(x, ...) {
   pillar::new_pillar_shaft_simple(out, align = "right")
 }
 
-# Maths generics ----------------------------------------------------------
+# Maths ----------------------------------------------------------
 
 #' @method vec_arith era_yr
 #' @export
@@ -253,16 +267,7 @@ vec_arith.era_yr.default <- function(op, x, y, ...) {
 #' @method vec_arith.era_yr era_yr
 #' @export
 vec_arith.era_yr.era_yr <- function(op, x, y, ...) {
-  if (yr_era(x) != yr_era(y)) {
-    stop_incompatible_op(op, x, y,
-                         details = "Reconcile eras with yr_transform() first.")
-  }
-
-  if (era_label(yr_era(x)) != era_label(yr_era(y)) |
-      era_name(yr_era(x)) != era_name(yr_era(y))) {
-    warn("`era(x)` and `era(y)` have different label or name parameters.",
-         class = "era_lossy_coercion")
-  }
+  y <- vec_cast(y, x)
 
   switch(
     op,
@@ -319,7 +324,7 @@ vec_arith.numeric.era_yr <- function(op, x, y, ...) {
   )
 }
 
-# Getters and setters -----------------------------------------------------
+# Get/set attributes -----------------------------------------------------
 
 #' Get or set the era of a vector of years
 #'

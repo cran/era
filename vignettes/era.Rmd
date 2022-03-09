@@ -38,7 +38,7 @@ library("tibble")
 library("dplyr")
 ```
 
-## Years with an era: the `yr` class {#yr}
+## Years with an era {#yr}
 
 Vectors of years with an era are represented by the `yr` (`era_yr`) class, which is constructed with `yr()`:
 
@@ -90,28 +90,45 @@ postglacial <- tribble(
   "Heinrich 1",      17.0
 )
 
-postglacial %>% 
+postglacial |> 
   mutate(start_ka = yr(start_ka, "ka"))
 ```
 
-## Era definitions: the `era` class {#era}
+## Era definitions {#era}
 
-Eras are defined by the `era` class.
-Many common eras are defined by the `eras()` function and can be referenced in `yr()` or `era()` by their abbreviated `label`:
+era includes built-in definitions of many time scales and year numbering systems from contemporary and historic calendars.
+`eras()` returns the [full list](#era-list) of built-in definitions. 
+You can use any definition in this list by passing its abbreviated `label` to `era()` or as the `era` argument of `yr()` or any other function in the package:
 
-```{r eras, results=FALSE}
-eras()
+```{r eg-use-era}
+era("BP")
+
+yr(10000, "BP")
+
+yr_transform(yr(10000, "BP"), "BCE")
 ```
-```{r eras-table, echo=FALSE}
-eras() %>% 
-  knitr::kable()
+
+If you need to use a time scale that is not in this list, you can [define it yourself](#defining-other-eras) with `era()`.
+Suggestions for new eras to include in the package are also welcome; please [create an issue](https://github.com/joeroe/era/issues) on GitHub with suggestions.
+
+### List of built-in eras {#era-list}
+
+```{r era-table, echo=FALSE}
+all_eras <- eras() 
+all_eras$this_year <- NA
+na_era <- is.na(era_year_days(all_eras$unit))
+all_eras$this_year[!na_era] <- this_year(all_eras$label[!na_era])
+
+knitr::kable(all_eras)
 ```
 
-Eras are defined by the following parameters:
+### Defining other eras
+
+Eras are defined by the `era` class with the following parameters:
 
 * **label**: an abbreviated label that uniquely identifies the era
 * **name**: the full name of the era
-* **epoch**: the origin year from which years are counted
+* **epoch**: the origin year from which years are counted (in Gregorian astronomical years)
 * **unit**: the unit of years counted, defined as its length in solar days
 * **scale**: the number of years represented by one unit
 * **direction**: whether years are counted forwards (`1`) or backwards (`-1`) from the epoch
@@ -133,8 +150,8 @@ As long as all the parameters are specified correctly, user-defined eras can als
 Use `yr_transform()` to convert between eras:
 
 ```{r transform}
-postglacial %>% 
-  mutate(start_ka = yr(start_ka, "ka")) %>% 
+postglacial |> 
+  mutate(start_ka = yr(start_ka, "ka")) |> 
   mutate(start_bp = yr_transform(start_ka, era("BP")),
          start_bce = yr_transform(start_ka, era("BCE")))
 ```
@@ -147,7 +164,7 @@ This means that, with a few exceptions (see [invalid transformations](#invalidtr
 By default, era transformations are exact:
 
 ```{r yr-transform-precision1}
-yr(500000, "BCE") %>% 
+yr(500000, "BCE") |> 
   yr_transform(era("ka"))
 ```
 
@@ -156,10 +173,10 @@ For example, when converting years between calendar- and present-based eras, the
 Use the `precision` argument of `yr_transform` to get rounded results:
 
 ```{r yr-transform-precision2}
-yr(10000, "BP") %>% 
+yr(10000, "BP") |> 
   yr_transform(era("BCE"), precision = 1000)
 
-yr(500000, "BCE") %>% 
+yr(500000, "BCE") |> 
   yr_transform(era("mya"), precision = 0.1)
 ```
 
