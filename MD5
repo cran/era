@@ -1,7 +1,7 @@
-133edee4742048199e0e9f3a2e104e6b *DESCRIPTION
+597bd170dc038362186852258529a483 *DESCRIPTION
 0638fd4d550cdd91e2dfc5f55c422ca8 *LICENSE
 18b05a7e82cd9d50e2bc379d6dae4d5d *NAMESPACE
-8f7cec3f98895dc6adec123d6db64ba2 *NEWS.md
+4de2a5fe0bc7cac8f57eedd7ed609fc4 *NEWS.md
 04da57521834bc829125eb48f129ad66 *R/era-package.R
 a2112c222e84ac8174248a9fa0f5c82e *R/s3-era.R
 f98649369f391a375595efed6f0d1686 *R/s3-era_year.R
@@ -10,11 +10,11 @@ fc337022c6af488346bb7894bc2ad989 *R/sysdata.rda
 8db60346085ce45ca10b6b8d4e629576 *R/transform.R
 ecce60a17c5b50347fb16f0ceddc67ea *R/utils-date.R
 e08d11176185fee47b589cf43cf50d93 *README.md
-585380bd08172c98562137177a3ba701 *build/vignette.rds
+a3e118302896bcc496adba32a70e3300 *build/vignette.rds
 4351bb4a1a6ca6a5b852fe3836c471b9 *inst/WORDLIST
 085bf92dff3293169926d4d33c385430 *inst/doc/era.R
 2583aee336e98dde8643d5dada8c48b3 *inst/doc/era.Rmd
-6b05e12f4809ed97925c83b958e2db1c *inst/doc/era.html
+5f1af5c513493562deac1c71755b404f *inst/doc/era.html
 520997728db226d29c2657477e5383d4 *man/era-rlang.Rd
 5dec3e1c99ab70ec89452b16d70f4679 *man/era-vctrs.Rd
 77ab6d5ad752d3ab474a86970259db8d *man/era.Rd
@@ -38,7 +38,7 @@ fc70e1897c80e7d3cd05b06d9d12d260 *man/yr.Rd
 da3c50a13e5f5b9889324d4e08269561 *tests/testthat/_snaps/yr.md
 9bbb5e29d96aa75eda199f685e2426ba *tests/testthat/test-era.R
 0a85e5e1fde6f4571f1b76ccb5cdca86 *tests/testthat/test-era_table.R
-1084c9b7738123ee4c30cbc4e5169fe9 *tests/testthat/test-examples.R
+4e68807c5a5886dec30c4ef5fd5f8d57 *tests/testthat/test-examples.R
 8deeccb11a856253f4e7c1a0c73a67de *tests/testthat/test-s3-era_year.R
 e37884c0ad471d64eb9d69f46465073c *tests/testthat/test-transform.R
 43a264922a12b73909e64146a18b91e1 *tests/testthat/test-yr.R
