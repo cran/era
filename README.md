@@ -11,11 +11,10 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![CRAN
 status](https://www.r-pkg.org/badges/version/era)](https://CRAN.R-project.org/package=era)
 [![CRAN
-checks](https://cranchecks.info/badges/worst/era)](https://cranchecks.info/pkgs/era)
-[![R build
-status](https://github.com/joeroe/era/workflows/R-CMD-check/badge.svg)](https://github.com/joeroe/era/actions)
-[![Codecov test
-coverage](https://codecov.io/gh/joeroe/era/branch/master/graph/badge.svg)](https://app.codecov.io/gh/joeroe/era?branch=master)
+checks](https://badges.cranchecks.info/worst/era.svg)](https://cran.r-project.org/web/checks/check_results_era.html)
+[![R-CMD-check](https://github.com/joeroe/era/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/joeroe/era/actions/workflows/R-CMD-check.yaml)
+[![Test
+coverage](https://codecov.io/gh/joeroe/era/graph/badge.svg)](https://app.codecov.io/gh/joeroe/era)
 <!-- badges: end -->
 
 **era** is an R package that provides a consistent representation of
@@ -40,18 +39,19 @@ tables.
 
 ## Installation
 
-You can install the released version of era from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the released version of era [from
+CRAN](https://cran.r-project.org/package=era) with:
 
 ``` r
 install.packages("era")
 ```
 
-Or the development version from [GitHub](https://github.com/) with:
+Or the development version from [GitHub](https://github.com/joeroe/era)
+using the [remotes](https://remotes.r-lib.org/) package:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("joeroe/era")
+# install.packages("remotes")
+remotes::install_github("joeroe/era")
 ```
 
 ## Basic usage

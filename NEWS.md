@@ -1,3 +1,8 @@
+# era 0.5.0
+
+* New `yr_sort()` function for chronological ordering of year vectors (#44)
+* New `yr_earliest()`, `yr_latest()`, and `yr_range()` functions for chronological extremes of year vectors (#43)
+
 # era 0.4.1
 
 This patch fixes a malfunctioning test that was causing CRAN checks to fail. There are no significant changes.
